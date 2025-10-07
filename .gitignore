@@ -1,0 +1,99 @@
+# ================================
+# .gitignore para Proyectos Check-in
+# ================================
+
+# === Credenciales y Configuración Sensible ===
+cx/dat_scs.php
+**/config.php
+**/database.php
+**/.env
+*.key
+*.pem
+
+# === Archivos de Sistema y Temporales ===
+*.log
+*.tmp
+*.temp
+*.cache
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === PHP ===
+vendor/
+composer.lock
+*.phar
+
+# === Node.js (si se usa) ===
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# === Archivos de IDE/Editor ===
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+*~
+.project
+.settings/
+.buildpath
+
+# === Archivos de Backup ===
+*.bak
+*.backup
+*.old
+*_backup
+*_old
+*.sql
+*.sql.gz
+
+# === Carpetas de Proyectos que NO queremos subir ===
+/wamp/
+/sc22/
+/klienteAPI/
+/webalizer/
+/xampp/
+/cws/
+/applications.html
+/bitnami.css
+/favicon.ico
+/index.php
+/prueba.php
+
+# === Carpetas de copias y releases ===
+**/AppMabel - copia/
+**/AppMabel_r/
+**/release/
+*.zip
+
+# === Archivos subidos por usuarios ===
+**/files/
+**/uploads/
+**/imagenes/*.xlsx
+**/Impresiones/
+
+# === Logs ===
+logs/
+*.log
+
+# === Archivos compilados (si hay .NET) ===
+bin/
+obj/
+publish/
+*.exe
+*.dll
+*.pdb
+
+# === PDFs y documentos grandes ===
+# Descomentar si no quieres subir PDFs
+# *.pdf
+
+# === Archivos específicos de XAMPP ===
+passwords.txt
+
+# === Mantener estructura de carpetas vacías ===
+!.gitkeep
+
