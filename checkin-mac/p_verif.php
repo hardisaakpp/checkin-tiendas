@@ -1,7 +1,7 @@
 <?php
     if($_POST['ced']!=''){ $iden=$_POST['ced']; $tip_iden='1'; }else{ $iden=$_POST['pas']; $tip_iden='2'; }
     include_once "../cx/bd_scs.php";     
-    $q = "SELECT COUNT(*) FROM plataforma_web.dbo.chk_cliente AS c WHERE c.chk_txt_iden='$iden' AND c.chk_sts_estado=1"; // coincidencia
+    $q = "SELECT COUNT(*) FROM plataforma_web.dbo.chk_cliente_mac AS c WHERE c.chk_mac_txt_iden='$iden' AND c.chk_mac_sts_estado=1"; // coincidencia tabla MAC
     $r = resp_oneval($q);
     if($r==0){
         session_start();

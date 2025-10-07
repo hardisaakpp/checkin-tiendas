@@ -20,7 +20,7 @@ if (empty($r)) {
   exit();
 }
 $tienda = $r[0]['nombre2'];
-$tsql = 'INSERT INTO "plataforma_web"."dbo"."log_chk" ("tnd_id")' . "VALUES ($id_tienda);";
+$tsql = 'INSERT INTO "plataforma_web"."dbo"."log_chk_mac" ("tnd_id")' . "VALUES ($id_tienda);";
 transac_data($tsql);
 include_once "header.php";
 ?>

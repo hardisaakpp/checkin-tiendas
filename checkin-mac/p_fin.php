@@ -10,12 +10,12 @@
     require '../assets/lib/PHPMailer/src/Exception.php';
     require '../assets/lib/PHPMailer/src/PHPMailer.php';
     require '../assets/lib/PHPMailer/src/SMTP.php';
-    $q = "SELECT COUNT(*) FROM plataforma_web.dbo.chk_cliente AS c WHERE c.chk_txt_iden='$_SESSION[iden]' AND c.chk_sts_estado=1"; // coincidencia
+    $q = "SELECT COUNT(*) FROM plataforma_web.dbo.chk_cliente_mac AS c WHERE c.chk_mac_txt_iden='$_SESSION[iden]' AND c.chk_mac_sts_estado=1"; // coincidencia tabla MAC
     $c = resp_oneval($q);
     if($c==0){
         if($_POST['aut']=='on' && $_POST['acep']=='on'){
-            $tsql = 'INSERT INTO "plataforma_web"."dbo"."chk_cliente"
-            ("tnd_id", "gen_id", "chk_txt_nombre", "chk_txt_apellido", "chk_val_tip_iden", "chk_txt_iden", "chk_txt_correo", "chk_txt_celular") VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+            $tsql = 'INSERT INTO "plataforma_web"."dbo"."chk_cliente_mac"
+            ("tnd_id", "gen_id", "chk_mac_txt_nombre", "chk_mac_txt_apellido", "chk_mac_val_tip_iden", "chk_mac_txt_iden", "chk_mac_txt_correo", "chk_mac_txt_celular") VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
             $params = [
                 $_SESSION['id_tienda'],
                 $_POST['gen_id'],
