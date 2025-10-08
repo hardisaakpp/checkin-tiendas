@@ -50,7 +50,7 @@ include_once "header.php";
       <label class="fs-smaller" for="toggleSwitch" id="toggleLabelCedula"><i>Cambiar a pasaporte</i></label>
       <label class="fs-smaller d-none" for="toggleSwitch" id="toggleLabelPasaporte"><i>Cambiar a cédula</i></label>
     </div>
-    <center><button class="w-80 btn btn-secondary btn-lg" type="submit">
+    <center><button class="w-80 btn btn-secondary btn-lg" type="submit" data-loading="spinner" data-loading-text="Participando...">
         Participar
       </button></center>
     <input name="id_tienda" type="hidden" value="<?php echo $id_tienda; ?>">

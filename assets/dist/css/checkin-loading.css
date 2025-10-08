@@ -72,23 +72,151 @@
 /* ===== BUTTON LOADING STATE ===== */
 .btn-loading {
     pointer-events: none;
-    opacity: 0.6;
+    opacity: 0.7;
     position: relative;
     cursor: not-allowed !important;
 }
 
-.btn-loading::after {
+/* ===== BUTTON SPINNER STYLES ===== */
+.btn-spinner {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-spinner::before {
     content: '';
     position: absolute;
     top: 50%;
-    left: 50%;
-    margin: -8px 0 0 -8px;
+    left: 20px;
+    margin-top: -8px;
     width: 16px;
     height: 16px;
     border: 2px solid transparent;
-    border-top-color: #ffffff;
+    border-top-color: currentColor;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    opacity: 0.8;
+}
+
+/* Variaciones de spinner según el color del botón */
+.btn-primary.btn-spinner::before {
+    border-top-color: #ffffff;
+}
+
+.btn-secondary.btn-spinner::before {
+    border-top-color: #ffffff;
+}
+
+.btn-success.btn-spinner::before {
+    border-top-color: #ffffff;
+}
+
+.btn-danger.btn-spinner::before {
+    border-top-color: #ffffff;
+}
+
+.btn-warning.btn-spinner::before {
+    border-top-color: #212529;
+}
+
+.btn-info.btn-spinner::before {
+    border-top-color: #ffffff;
+}
+
+.btn-light.btn-spinner::before {
+    border-top-color: #212529;
+}
+
+.btn-dark.btn-spinner::before {
+    border-top-color: #ffffff;
+}
+
+.btn-outline-primary.btn-spinner::before,
+.btn-outline-secondary.btn-spinner::before,
+.btn-outline-success.btn-spinner::before,
+.btn-outline-danger.btn-spinner::before,
+.btn-outline-warning.btn-spinner::before,
+.btn-outline-info.btn-spinner::before,
+.btn-outline-light.btn-spinner::before,
+.btn-outline-dark.btn-spinner::before {
+    border-top-color: currentColor;
+}
+
+/* ===== BUTTON SIZE VARIATIONS ===== */
+.btn-lg.btn-spinner::before {
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    left: 25px;
+    border-width: 3px;
+}
+
+.btn-sm.btn-spinner::before {
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
+    left: 15px;
+    border-width: 2px;
+}
+
+/* ===== FULL WIDTH BUTTONS ===== */
+.w-100.btn-spinner::before,
+.w-80.btn-spinner::before {
+    left: 50%;
+    margin-left: -8px;
+}
+
+.w-100.btn-lg.btn-spinner::before,
+.w-80.btn-lg.btn-spinner::before {
+    margin-left: -10px;
+}
+
+.w-100.btn-sm.btn-spinner::before,
+.w-80.btn-sm.btn-spinner::before {
+    margin-left: -6px;
+}
+
+/* ===== LOADING TEXT ANIMATION ===== */
+.btn-loading {
+    transition: all 0.3s ease;
+}
+
+.btn-loading:not(.btn-spinner) {
+    background-image: linear-gradient(45deg, 
+        rgba(255,255,255,0.1) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(255,255,255,0.1) 50%, 
+        rgba(255,255,255,0.1) 75%, 
+        transparent 75%, 
+        transparent);
+    background-size: 20px 20px;
+    animation: loading-stripes 1s linear infinite;
+}
+
+@keyframes loading-stripes {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 20px; }
+}
+
+/* ===== RESET BUTTON ANIMATION ===== */
+.btn-reset-animation {
+    background-image: linear-gradient(45deg, 
+        rgba(255,255,255,0.2) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(255,255,255,0.2) 50%, 
+        rgba(255,255,255,0.2) 75%, 
+        transparent 75%, 
+        transparent);
+    background-size: 15px 15px;
+    animation: loading-stripes 0.8s linear infinite;
+    transition: all 0.3s ease;
+}
+
+.btn-reset-animation:not(:disabled) {
+    transform: scale(0.98);
+    opacity: 0.9;
 }
 
 /* ===== FORM LOADING STATE ===== */
@@ -146,6 +274,113 @@
 
 .fs-smaller {
     font-size: 0.7rem;
+}
+
+/* ===== NAVIGATION BUTTONS (NO SPINNER) ===== */
+.btn-nav,
+.no-spinner,
+#prev-page,
+#next-page,
+#zoom-in,
+#zoom-out {
+    position: relative;
+}
+
+.btn-nav:not(.btn-loading),
+.no-spinner:not(.btn-loading),
+#prev-page:not(.btn-loading),
+#next-page:not(.btn-loading),
+#zoom-in:not(.btn-loading),
+#zoom-out:not(.btn-loading) {
+    transition: all 0.2s ease;
+}
+
+.btn-nav:hover:not(.btn-loading),
+.no-spinner:hover:not(.btn-loading),
+#prev-page:hover:not(.btn-loading),
+#next-page:hover:not(.btn-loading),
+#zoom-in:hover:not(.btn-loading),
+#zoom-out:hover:not(.btn-loading) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* ===== SINGLE CLICK BUTTON PROTECTION ===== */
+.btn-single-click {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.btn-single-click:not(.btn-clicked):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.btn-single-click.btn-clicked {
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+    opacity: 0.6;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.btn-single-click.btn-clicked * {
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+}
+
+/* Cursor prohibido para elementos deshabilitados */
+.btn-clicked,
+.btn-clicked *,
+.btn-loading,
+.btn-loading * {
+    cursor: not-allowed !important;
+}
+
+/* Cursor prohibido específico para enlaces con botones clickeados */
+a:has(.btn-clicked),
+a .btn-clicked,
+a[style*="pointer-events: none"] {
+    cursor: not-allowed !important;
+    pointer-events: auto !important; /* Permitir que el cursor se muestre */
+}
+
+a:has(.btn-clicked):hover,
+a .btn-clicked:hover {
+    cursor: not-allowed !important;
+}
+
+/* Animación de clic exitoso */
+.btn-single-click.btn-click-success {
+    animation: clickSuccess 0.4s ease;
+}
+
+@keyframes clickSuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); background-color: rgba(40, 167, 69, 0.2); }
+    100% { transform: scale(1); }
+}
+
+/* Estados específicos para diferentes tipos de botones */
+.btn-secondary.btn-clicked {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #ffffff;
+    opacity: 0.5;
+}
+
+.btn-primary.btn-clicked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #ffffff;
+    opacity: 0.5;
+}
+
+.btn-success.btn-clicked {
+    background-color: #198754;
+    border-color: #198754;
+    color: #ffffff;
+    opacity: 0.5;
 }
 
 /* ===== DARK MODE SUPPORT ===== */
