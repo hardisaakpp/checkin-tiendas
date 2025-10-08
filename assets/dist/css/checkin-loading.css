@@ -418,6 +418,15 @@
         font-size: 15px;
         padding: 0 30px;
     }
+    
+    /* Ajustes para modo día en tablets */
+    [data-bs-theme="light"] .loading-spinner::before {
+        border-width: 3px;
+    }
+    
+    [data-bs-theme="light"] .loading-spinner::after {
+        border-width: 3px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -435,6 +444,19 @@
     .loading-text {
         font-size: 14px;
         padding: 0 25px;
+    }
+    
+    /* Ajustes para modo día en móviles */
+    [data-bs-theme="light"] .loading-spinner::before {
+        border-width: 2.5px;
+        box-shadow: 
+            0 0 20px rgba(79, 70, 229, 0.35),
+            0 0 40px rgba(124, 58, 237, 0.15),
+            inset 0 0 15px rgba(79, 70, 229, 0.08);
+    }
+    
+    [data-bs-theme="light"] .loading-spinner::after {
+        border-width: 2.5px;
     }
 }
 
@@ -619,20 +641,93 @@ a .btn-clicked:hover {
     border-left-color: rgba(255, 255, 255, 0.4);
 }
 
+/* ===== MODO DÍA - Diseño Vibrante y Elegante ===== */
+[data-bs-theme="light"] .loading-overlay {
+    background: linear-gradient(135deg, rgba(240, 242, 245, 0.98) 0%, rgba(250, 251, 252, 0.96) 100%);
+    backdrop-filter: blur(16px) saturate(200%);
+    -webkit-backdrop-filter: blur(16px) saturate(200%);
+}
+
 [data-bs-theme="light"] .loading-spinner::before {
-    border-top-color: #000000;
-    border-right-color: #000000;
+    border-top-color: #4F46E5;
+    border-right-color: #7C3AED;
+    border-width: 3.5px;
     box-shadow: 
-        0 0 20px rgba(0, 0, 0, 0.2),
-        inset 0 0 20px rgba(0, 0, 0, 0.1);
+        0 0 30px rgba(79, 70, 229, 0.4),
+        0 0 60px rgba(124, 58, 237, 0.2),
+        inset 0 0 20px rgba(79, 70, 229, 0.1);
+    filter: brightness(1.1);
 }
 
 [data-bs-theme="light"] .loading-spinner::after {
-    border-bottom-color: rgba(0, 0, 0, 0.3);
-    border-left-color: rgba(0, 0, 0, 0.3);
+    border-bottom-color: rgba(236, 72, 153, 0.5);
+    border-left-color: rgba(249, 115, 22, 0.5);
+    border-width: 3.5px;
+    box-shadow: 
+        0 0 20px rgba(236, 72, 153, 0.2),
+        inset 0 0 15px rgba(249, 115, 22, 0.1);
 }
 
-/* ===== EFECTO ADICIONAL: Anillo de Pulso ===== */
+[data-bs-theme="light"] .loading-text {
+    color: #1e293b;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto de pulso mejorado para modo día */
+[data-bs-theme="light"] .loading-spinner {
+    animation: pulseRingLight 2s ease-in-out infinite;
+}
+
+@keyframes pulseRingLight {
+    0%, 100% {
+        filter: drop-shadow(0 0 0 rgba(79, 70, 229, 0));
+    }
+    50% {
+        filter: drop-shadow(0 0 25px rgba(79, 70, 229, 0.4)) drop-shadow(0 0 40px rgba(124, 58, 237, 0.2));
+    }
+}
+
+/* Media query para modo día del sistema */
+@media (prefers-color-scheme: light) {
+    .loading-overlay {
+        background: linear-gradient(135deg, rgba(240, 242, 245, 0.98) 0%, rgba(250, 251, 252, 0.96) 100%);
+        backdrop-filter: blur(16px) saturate(200%);
+        -webkit-backdrop-filter: blur(16px) saturate(200%);
+    }
+    
+    .loading-spinner::before {
+        border-top-color: #4F46E5;
+        border-right-color: #7C3AED;
+        border-width: 3.5px;
+        box-shadow: 
+            0 0 30px rgba(79, 70, 229, 0.4),
+            0 0 60px rgba(124, 58, 237, 0.2),
+            inset 0 0 20px rgba(79, 70, 229, 0.1);
+        filter: brightness(1.1);
+    }
+    
+    .loading-spinner::after {
+        border-bottom-color: rgba(236, 72, 153, 0.5);
+        border-left-color: rgba(249, 115, 22, 0.5);
+        border-width: 3.5px;
+        box-shadow: 
+            0 0 20px rgba(236, 72, 153, 0.2),
+            inset 0 0 15px rgba(249, 115, 22, 0.1);
+    }
+    
+    .loading-text {
+        color: #1e293b;
+        font-weight: 600;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .loading-spinner {
+        animation: pulseRingLight 2s ease-in-out infinite;
+    }
+}
+
+/* ===== EFECTO ADICIONAL: Anillo de Pulso (Modo Oscuro por defecto) ===== */
 .loading-spinner {
     animation: pulseRing 2s ease-in-out infinite;
 }
@@ -644,4 +739,9 @@ a .btn-clicked:hover {
     50% {
         filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
     }
+}
+
+/* Sobrescribir animación para modo día explícito */
+[data-bs-theme="dark"] .loading-spinner {
+    animation: pulseRing 2s ease-in-out infinite;
 }
