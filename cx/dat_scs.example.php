@@ -15,3 +15,4 @@
 	define("BD","STORECONTROL");          // Nombre de la base de datos
 ?>
 
+

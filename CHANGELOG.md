@@ -79,3 +79,4 @@ plataforma_web.dbo.log_chk_mac
 - Diseño responsive con Bootstrap
 - Modo claro/oscuro
 
+

@@ -91,6 +91,7 @@
     </style>    
     <!-- Custom styles for this template -->
     <link href="../assets/dist/css/checkout.css" rel="stylesheet">
+    <link href="../assets/dist/css/checkin-loading.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
     <script> 
       function convertirAMayusculas(event) { event.target.value = event.target.value.toUpperCase(); } 

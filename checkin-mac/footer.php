@@ -31,5 +31,6 @@
     </div>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>  
     <script src="../assets/dist/js/checkout.js"></script>
+    <script src="../assets/dist/js/loading-manager.js"></script>
   </body>
 </html>

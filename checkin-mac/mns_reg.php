@@ -22,7 +22,7 @@ include_once "header.php";
         </h1>
         <p>Estamos felices de tenerte cerca.
             Hemos enviado un correo
-            electónico a tu bandeja de entrada.
+            electrónico a tu bandeja de entrada.
             Si no lo ves, por favor revisa tu
             carpeta de spam o correo no
             deseado.</p>

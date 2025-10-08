@@ -24,11 +24,7 @@ $tsql = 'INSERT INTO "plataforma_web"."dbo"."log_chk_mac" ("tnd_id")' . "VALUES 
 transac_data($tsql);
 include_once "header.php";
 ?>
-<style>
-  .fs-smaller {
-    font-size: 0.7rem;
-  }
-</style>
+
 <main>
   <a href="#">
     <img src="../assets/img/promociones/mac/KIT-COLOUR-EXCESS.png" class="d-block w-100" alt="Promoción 1" style="width: 50%; height: auto; border-radius: 21px;">
@@ -61,6 +57,12 @@ include_once "header.php";
     <input name="tienda" type="hidden" value="<?php echo $tienda; ?>">
   </form>
 </main><br>
+
+<!-- Loading Overlay -->
+<div id="loadingOverlay" class="loading-overlay">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">Cargando...<br>Por favor espera</div>
+</div>
 
 <div class="text-center overflow-hidden"
   style="border-radius: 15px; background-color: #59595C; color: white; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; min-height: 100px;">
@@ -103,12 +105,6 @@ include_once "header.php";
     }
   });
 
-  const form = document.querySelector('form');
-  const pasaporteInput = document.getElementById('pas');
-  form.addEventListener('submit', function(event) {
-    if (pasaporteInput && pasaporteInput.value) {
-      pasaporteInput.value = pasaporteInput.value.toUpperCase();
-    }
-  });
+  // El sistema de carga ahora se maneja automáticamente por loading-manager.js
 </script>
 <?php include_once "footer.php"; ?>
