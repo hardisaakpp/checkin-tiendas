@@ -55,6 +55,127 @@
     }
 }
 
+/* ===== FOCUSED BUTTON LOADING EFFECT ===== */
+.btn-focused-loading {
+    position: relative !important;
+    z-index: 10001 !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.6), 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.4s ease !important;
+    animation: focusedPulse 2s ease-in-out infinite !important;
+    
+    /* Mejorar visibilidad del texto */
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Animación de pulso para el botón enfocado */
+@keyframes focusedPulse {
+    0% {
+        box-shadow: 0 0 30px rgba(0, 123, 255, 0.6), 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(0, 123, 255, 0.8), 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(0, 123, 255, 0.6), 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Blur effect for background */
+.page-blur-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.page-blur-background.active {
+    opacity: 1;
+}
+
+/* Efecto de brillado para indicar que es el elemento activo */
+.btn-focused-loading::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #007bff, #28a745, #007bff);
+    border-radius: inherit;
+    z-index: -1;
+    animation: rotateGlow 3s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mejorar visibilidad del spinner y texto en botón enfocado */
+.btn-focused-loading .fas.fa-spinner {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9) !important;
+    margin-right: 8px !important;
+    font-size: 16px !important;
+    z-index: 10002 !important;
+    position: relative !important;
+}
+
+/* Asegurar contraste del texto en el botón enfocado */
+.btn-focused-loading,
+.btn-focused-loading:hover,
+.btn-focused-loading:focus,
+.btn-focused-loading:active,
+.btn-focused-loading:disabled {
+    background-color: #007bff !important;
+    border-color: #0056b3 !important;
+    color: white !important;
+    z-index: 10001 !important;
+    position: relative !important;
+}
+
+/* Asegurar que todo el contenido del botón esté por encima */
+.btn-focused-loading * {
+    z-index: 10002 !important;
+    position: relative !important;
+}
+
+/* Contenedor del botón que está por encima del blur */
+.btn-above-blur-container {
+    position: fixed !important;
+    z-index: 10001 !important;
+    opacity: 0;
+    transform: scale(1);
+    transition: all 0.4s ease !important;
+}
+
+.btn-above-blur-container.active {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Botón dentro del contenedor elevado */
+.btn-above-blur-container .btn-focused-loading {
+    transform: none !important; /* El scale se aplica al contenedor */
+    margin: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
 /* Fade in animation for overlay */
 .loading-overlay.show {
     animation: fadeIn 0.3s ease-in-out;

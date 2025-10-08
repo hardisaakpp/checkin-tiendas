@@ -51,6 +51,7 @@
             // Nuevas propiedades para múltiples botones
             this.buttons = new Map(); // Para almacenar estado de cada botón
             this.activeButtons = [];
+            this.safetyTimeout = null;
             
             this.init();
         }
@@ -108,12 +109,16 @@
             
             // Solo configurar eventos de loading si hay overlay disponible
             if (this.loadingOverlay) {
-                // Eventos para ocultar loading
-                window.addEventListener('pageshow', () => this.hideAllLoading());
-                window.addEventListener('focus', () => this.hideAllLoading());
+                // Eventos para ocultar loading SOLO en caso de volver a la página (back button)
+                window.addEventListener('pageshow', (event) => {
+                    // Solo ocultar si es un evento de back/forward desde el cache
+                    if (event.persisted) {
+                        this.hideAllLoading();
+                    }
+                });
                 
-                // Evento para limpiar loading en caso de error
-                window.addEventListener('beforeunload', () => this.hideAllLoading());
+                // NO ocultar loading en focus para mantener el spinner durante la navegación
+                // window.addEventListener('focus', () => this.hideAllLoading());
             }
         }
 
@@ -313,6 +318,12 @@
             if (activeSubmitButton && this.buttons.has(activeSubmitButton)) {
                 this.showButtonLoading(activeSubmitButton);
             }
+            
+            // Mecanismo de seguridad: ocultar loading después de 30 segundos si no se redirigió
+            this.safetyTimeout = setTimeout(() => {
+                console.warn('Loading timeout alcanzado. Ocultando loading automáticamente.');
+                this.hideAllLoading();
+            }, 30000);
         }
 
         /**
@@ -352,6 +363,9 @@
             try {
                 config.isLoading = true;
                 
+                // Obtener el texto de carga personalizado o usar el por defecto
+                const loadingText = button.getAttribute('data-loading-text') || this.config.buttonLoadingText;
+                
                 // Deshabilitar el botón
                 button.disabled = true;
                 
@@ -360,7 +374,6 @@
                 button.classList.add(this.config.buttonSpinnerClass);
                 
                 // Cambiar texto si es necesario
-                const loadingText = button.getAttribute('data-loading-text') || this.config.buttonLoadingText;
                 if (loadingText && loadingText !== config.originalText) {
                     button.textContent = loadingText;
                 }
@@ -380,6 +393,19 @@
         }
 
         /**
+         * Muestra un efecto de carga enfocado con blur en el fondo (DESHABILITADO)
+         * Esta función se mantiene por compatibilidad pero ya no se usa
+         * @param {HTMLElement} button - El botón que está cargando
+         * @param {string} loadingText - Texto de carga
+         * @deprecated - Usar showButtonLoading() en su lugar
+         */
+        showFocusedButtonLoading(button, loadingText) {
+            // Esta funcionalidad ha sido deshabilitada
+            // Usar el método estándar en su lugar
+            this.showButtonLoading(button);
+        }
+
+        /**
          * Oculta loading en un botón específico
          * @param {HTMLElement} button - El botón
          */
@@ -390,8 +416,12 @@
             try {
                 config.isLoading = false;
                 
+                // Limpiar efecto enfocado si existe
+                this.hideFocusedButtonLoading();
+                
                 // Restaurar estado original
                 button.disabled = config.originalDisabled;
+                button.style.visibility = 'visible';
                 
                 // Remover clases de loading
                 button.classList.remove(this.config.buttonLoadingClass);
@@ -415,11 +445,44 @@
         }
 
         /**
+         * Oculta el efecto de loading enfocado (DESHABILITADO)
+         * Esta función se mantiene por compatibilidad pero ya no es necesaria
+         * @deprecated - El sistema ahora usa el método estándar
+         */
+        hideFocusedButtonLoading() {
+            // Limpiar cualquier elemento residual de versiones anteriores
+            const blurOverlay = document.getElementById('focusedLoadingBlur');
+            const buttonContainer = document.getElementById('buttonAboveBlur');
+            
+            if (blurOverlay && blurOverlay.parentNode) {
+                blurOverlay.parentNode.removeChild(blurOverlay);
+            }
+            
+            if (buttonContainer && buttonContainer.parentNode) {
+                buttonContainer.parentNode.removeChild(buttonContainer);
+            }
+
+            // Restaurar visibilidad de botones
+            document.querySelectorAll('button[style*="visibility: hidden"]').forEach(button => {
+                button.style.visibility = 'visible';
+            });
+        }
+
+        /**
          * Oculta loading en todos los botones activos
          */
         hideAllLoading() {
+            // Cancelar el timeout de seguridad si existe
+            if (this.safetyTimeout) {
+                clearTimeout(this.safetyTimeout);
+                this.safetyTimeout = null;
+            }
+            
             // Ocultar overlay principal
             this.hideLoading();
+            
+            // Ocultar efecto enfocado
+            this.hideFocusedButtonLoading();
             
             // Ocultar loading en todos los botones activos
             [...this.activeButtons].forEach(button => {

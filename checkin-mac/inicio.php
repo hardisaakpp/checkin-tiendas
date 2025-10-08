@@ -2,6 +2,7 @@
   session_start();
   if(!isset($_SESSION['id_tienda']) || !isset($_SESSION['tienda']) || !isset($_SESSION['iden'])){ session_unset(); session_destroy(); header("Location: index.php"); exit(); }
   $tienda=$_SESSION['tienda'];
+  $need_form_validation = true; // Habilitar validación de formularios
   include_once "header.php"; 
   include_once "../cx/bd_scs.php";  
   $q = "SELECT gen_id, gen_txt_nombre FROM plataforma_web.dbo.chk_genero;";

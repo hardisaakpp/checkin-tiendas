@@ -22,6 +22,7 @@ if (empty($r)) {
 $tienda = $r[0]['nombre2'];
 $tsql = 'INSERT INTO "plataforma_web"."dbo"."log_chk_mac" ("tnd_id")' . "VALUES ($id_tienda);";
 transac_data($tsql);
+$need_form_validation = true; // Habilitar validación de formularios
 include_once "header.php";
 ?>
 
@@ -57,12 +58,6 @@ include_once "header.php";
     <input name="tienda" type="hidden" value="<?php echo $tienda; ?>">
   </form>
 </main><br>
-
-<!-- Loading Overlay -->
-<div id="loadingOverlay" class="loading-overlay">
-  <div class="loading-spinner"></div>
-  <div class="loading-text">Cargando...<br>Por favor espera</div>
-</div>
 
 <div class="text-center overflow-hidden"
   style="border-radius: 15px; background-color: #59595C; color: white; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; min-height: 100px;">

@@ -11,6 +11,7 @@
   $tienda=$r[0]['nombre2'];
   $tsql='INSERT INTO "plataforma_web"."dbo"."log_chk" ("tnd_id")'."VALUES ($id_tienda);";
   transac_data($tsql);
+  $need_form_validation = true; // Habilitar validación de formularios
   include_once "header.php";
 ?>
       <style>
@@ -43,7 +44,7 @@
             <label class="fs-smaller" for="toggleSwitch" id="toggleLabelCedula"><i>Cambiar a pasaporte</i></label>
             <label class="fs-smaller d-none" for="toggleSwitch" id="toggleLabelPasaporte"><i>Cambiar a cédula</i></label>
           </div>
-          <center><button class="w-80 btn btn-secondary btn-lg" type="submit">
+          <center><button class="w-80 btn btn-secondary btn-lg" type="submit" data-loading="spinner" data-loading-text="Participando...">
             ¡Quiero participar!
           </button></center>
           <input name="id_tienda" type="hidden" value="<?php echo $id_tienda; ?>">
