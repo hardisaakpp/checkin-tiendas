@@ -1,0 +1,303 @@
+/**
+ * Checkin Loading System - iOS Specific Fixes
+ * Correcciones específicas para Safari iOS y Chrome iOS
+ * Author: Departamento Desarrollo MABEL
+ * Version: 1.0
+ * 
+ * Este archivo SOLO se carga en dispositivos iOS
+ * NO modificar el archivo principal checkin-loading.css
+ */
+
+/* ===== iOS FIX: Loading Overlay ===== */
+.loading-overlay {
+    /* Forzar aceleración por hardware en iOS */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    will-change: opacity;
+    
+    /* Optimizar backdrop-filter para iOS */
+    backdrop-filter: blur(8px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(180%) !important;
+    
+    /* Asegurar que el overlay sea visible en iOS */
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+/* ===== iOS FIX: Loading Spinner ===== */
+.loading-spinner {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.loading-spinner::before,
+.loading-spinner::after {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* ===== iOS FIX: Simplificar box-shadow que causa problemas ===== */
+.loading-spinner::before {
+    /* Simplificar el box-shadow - inset causa problemas en iOS */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ===== iOS FIX: Animaciones con aceleración GPU ===== */
+@-webkit-keyframes spinModern {
+    0% { 
+        -webkit-transform: rotate(0deg) scale(1) translateZ(0);
+        transform: rotate(0deg) scale(1) translateZ(0);
+    }
+    50% {
+        -webkit-transform: rotate(180deg) scale(1.1) translateZ(0);
+        transform: rotate(180deg) scale(1.1) translateZ(0);
+    }
+    100% { 
+        -webkit-transform: rotate(360deg) scale(1) translateZ(0);
+        transform: rotate(360deg) scale(1) translateZ(0);
+    }
+}
+
+@keyframes spinModern {
+    0% { 
+        transform: rotate(0deg) scale(1) translateZ(0);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1) translateZ(0);
+    }
+    100% { 
+        transform: rotate(360deg) scale(1) translateZ(0);
+    }
+}
+
+@-webkit-keyframes spinModernReverse {
+    0% { 
+        -webkit-transform: rotate(0deg) scale(0.95) translateZ(0);
+        transform: rotate(0deg) scale(0.95) translateZ(0);
+        opacity: 0.6;
+    }
+    50% {
+        -webkit-transform: rotate(-180deg) scale(1.05) translateZ(0);
+        transform: rotate(-180deg) scale(1.05) translateZ(0);
+        opacity: 0.8;
+    }
+    100% { 
+        -webkit-transform: rotate(-360deg) scale(0.95) translateZ(0);
+        transform: rotate(-360deg) scale(0.95) translateZ(0);
+        opacity: 0.6;
+    }
+}
+
+@keyframes spinModernReverse {
+    0% { 
+        transform: rotate(0deg) scale(0.95) translateZ(0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: rotate(-180deg) scale(1.05) translateZ(0);
+        opacity: 0.8;
+    }
+    100% { 
+        transform: rotate(-360deg) scale(0.95) translateZ(0);
+        opacity: 0.6;
+    }
+}
+
+/* ===== iOS FIX: Animation fade in text ===== */
+@-webkit-keyframes fadeInText {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(10px) translateZ(0);
+        transform: translateY(10px) translateZ(0);
+    }
+    to {
+        opacity: 0.95;
+        -webkit-transform: translateY(0) translateZ(0);
+        transform: translateY(0) translateZ(0);
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(10px) translateZ(0);
+    }
+    to {
+        opacity: 0.95;
+        transform: translateY(0) translateZ(0);
+    }
+}
+
+/* ===== iOS FIX: Pulse Ring animations ===== */
+@-webkit-keyframes pulseRing {
+    0%, 100% {
+        -webkit-filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+        filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    }
+    50% {
+        -webkit-filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+    }
+}
+
+@keyframes pulseRing {
+    0%, 100% {
+        filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    }
+    50% {
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+    }
+}
+
+@-webkit-keyframes pulseRingLight {
+    0%, 100% {
+        -webkit-filter: drop-shadow(0 0 0 rgba(79, 70, 229, 0));
+        filter: drop-shadow(0 0 0 rgba(79, 70, 229, 0));
+    }
+    50% {
+        -webkit-filter: drop-shadow(0 0 25px rgba(79, 70, 229, 0.4)) drop-shadow(0 0 40px rgba(124, 58, 237, 0.2));
+        filter: drop-shadow(0 0 25px rgba(79, 70, 229, 0.4)) drop-shadow(0 0 40px rgba(124, 58, 237, 0.2));
+    }
+}
+
+@keyframes pulseRingLight {
+    0%, 100% {
+        filter: drop-shadow(0 0 0 rgba(79, 70, 229, 0));
+    }
+    50% {
+        filter: drop-shadow(0 0 25px rgba(79, 70, 229, 0.4)) drop-shadow(0 0 40px rgba(124, 58, 237, 0.2));
+    }
+}
+
+/* ===== iOS FIX: Modo día optimizado ===== */
+[data-bs-theme="light"] .loading-overlay {
+    background: linear-gradient(135deg, rgba(240, 242, 245, 0.98) 0%, rgba(250, 251, 252, 0.96) 100%);
+    backdrop-filter: blur(12px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(200%) !important;
+}
+
+[data-bs-theme="light"] .loading-spinner::before {
+    border-top-color: #4F46E5;
+    border-right-color: #7C3AED;
+    box-shadow: 0 0 30px rgba(79, 70, 229, 0.4) !important;
+}
+
+[data-bs-theme="light"] .loading-spinner::after {
+    border-bottom-color: rgba(236, 72, 153, 0.5);
+    border-left-color: rgba(249, 115, 22, 0.5);
+}
+
+[data-bs-theme="light"] .loading-text {
+    color: #1e293b;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== iOS FIX: Asegurar visibilidad del texto ===== */
+.loading-text {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* ===== iOS FIX: Button Loading States ===== */
+.btn-loading {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.btn-spinner::before {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* ===== iOS FIX: Focused Button Loading ===== */
+.btn-focused-loading {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: scale(1.1) translateZ(0) !important;
+    -webkit-transform: scale(1.1) translateZ(0) !important;
+}
+
+/* ===== iOS FIX: Animación de loading stripes ===== */
+@-webkit-keyframes loading-stripes {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 20px; }
+}
+
+@keyframes loading-stripes {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 20px; }
+}
+
+/* ===== iOS FIX: No scroll body ===== */
+.no-scroll {
+    position: fixed;
+    width: 100%;
+    overflow: hidden !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ===== iOS FIX: Responsive optimizations ===== */
+@media (max-width: 768px) {
+    .loading-spinner {
+        -webkit-transform: translateZ(0) scale(1);
+        transform: translateZ(0) scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .loading-overlay {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    
+    .loading-spinner::before,
+    .loading-spinner::after {
+        -webkit-transform: translateZ(1px);
+        transform: translateZ(1px);
+    }
+}
+
+/* ===== iOS FIX: Prefers reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+    .loading-spinner::before {
+        animation: spinSimple 2s linear infinite;
+        -webkit-animation: spinSimple 2s linear infinite;
+    }
+    
+    @-webkit-keyframes spinSimple {
+        from { 
+            -webkit-transform: rotate(0deg) translateZ(0);
+            transform: rotate(0deg) translateZ(0);
+        }
+        to { 
+            -webkit-transform: rotate(360deg) translateZ(0);
+            transform: rotate(360deg) translateZ(0);
+        }
+    }
+    
+    @keyframes spinSimple {
+        from { transform: rotate(0deg) translateZ(0); }
+        to { transform: rotate(360deg) translateZ(0); }
+    }
+}
+

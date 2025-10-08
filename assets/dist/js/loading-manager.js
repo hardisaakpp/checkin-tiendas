@@ -60,11 +60,64 @@
          * Inicializa el sistema de carga
          */
         init() {
+            // Detectar y cargar estilos para iOS si es necesario
+            this.detectAndLoadiOSStyles();
+            
             // Esperar a que el DOM esté listo
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => this.setup());
             } else {
                 this.setup();
+            }
+        }
+
+        /**
+         * Detecta dispositivos iOS y carga estilos específicos automáticamente
+         */
+        detectAndLoadiOSStyles() {
+            // Detectar iOS de forma confiable (incluye iPad con iPadOS 13+)
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) 
+                          || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            
+            const isIOSSafari = isIOS && /Safari/.test(navigator.userAgent) && !/CriOS|FxiOS/.test(navigator.userAgent);
+            const isIOSChrome = isIOS && /CriOS/.test(navigator.userAgent);
+            
+            // Si es iOS (Safari, Chrome, o cualquier navegador iOS), cargar CSS específico
+            if (isIOS || isIOSSafari || isIOSChrome) {
+                // Verificar si ya se cargó el CSS para evitar duplicados
+                const existingLink = document.querySelector('link[href*="checkin-loading-ios.css"]');
+                
+                if (!existingLink) {
+                    // Crear elemento link para el CSS de iOS
+                    const link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = '../assets/dist/css/checkin-loading-ios.css?v=1.0';
+                    link.id = 'ios-loading-styles';
+                    link.type = 'text/css';
+                    
+                    // Insertar después del CSS principal de loading
+                    const mainLoadingCSS = document.querySelector('link[href*="checkin-loading.css"]');
+                    if (mainLoadingCSS && mainLoadingCSS.parentNode) {
+                        // Insertar justo después del CSS principal
+                        mainLoadingCSS.parentNode.insertBefore(link, mainLoadingCSS.nextSibling);
+                    } else {
+                        // Si no encuentra el CSS principal, agregar al final del head
+                        document.head.appendChild(link);
+                    }
+                    
+                    // Log informativo (útil para debugging)
+                    console.log('✅ iOS detected - Loading iOS-specific styles for better compatibility');
+                    
+                    // Agregar data attribute al body para identificación
+                    if (document.body) {
+                        document.body.setAttribute('data-platform', 'ios');
+                    } else {
+                        // Si el body aún no existe, esperar a que esté disponible
+                        document.addEventListener('DOMContentLoaded', () => {
+                            document.body.setAttribute('data-platform', 'ios');
+                        });
+                    }
+                }
             }
         }
 
