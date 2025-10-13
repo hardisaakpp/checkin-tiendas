@@ -9,6 +9,15 @@ if (!isset($id_tienda_string) || $id_tienda_string == '' || is_null($id_tienda_s
   exit();
 }
 $id_tienda = substr($id_tienda_string, 7, -10);
+// Lista de IDs válidos de tiendas MAC (actualizar según tus tiendas)
+$tiendas_mac_validas = [268, 17, 21, 236, 22, 19, 20]; // ← Reemplazar con IDs reales de MAC
+
+if (!in_array($id_tienda, $tiendas_mac_validas)) {
+  session_unset();
+  session_destroy();
+  header("Location: mns_check.php");
+  exit();
+}
 $ix = 1; //identifica que es un index
 include_once "../cx/bd_scs.php";
 $q = "SELECT TOP 1 a.nombre2,c.name FROM STORECONTROL.dbo.Almacen AS a INNER JOIN STORECONTROL.dbo.Emp AS e ON a.fk_emp=e.id INNER JOIN STORECONTROL.dbo.Ciudad AS c ON a.id_ciud=c.id WHERE a.sts_nombre2=1 AND a.id=$id_tienda;";
