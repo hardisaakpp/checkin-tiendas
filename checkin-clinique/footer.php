@@ -10,18 +10,22 @@
               </div>
             </section>
           </div>
-          
+
           <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)" id="current_date">
-              <script> document.getElementById("current_date").innerHTML = new Date().getFullYear();</script> <a class="text-white" href="https://www.elcompanies.com/es/our-brands/clinique" target="_blank">CLINIQUE | ESTÉE LAUDER</a>
+            <script>
+              document.getElementById("current_date").innerHTML = new Date().getFullYear();
+            </script>
+            <a class="text-white" href="javascript:void(0)">CLINIQUE | ESTÉE LAUDER</a>
           </div>
         </footer>
       </div>
-    </div>
-    
-    
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-    <?php if(isset($need_form_validation) && $need_form_validation === true): ?>
-    <script src="../assets/dist/js/checkout.js"></script>
-    <?php endif; ?>
-  </body>
-</html>
+      </div>
+
+
+      <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+      <?php if (isset($need_form_validation) && $need_form_validation === true): ?>
+        <script src="../assets/dist/js/checkout.js"></script>
+      <?php endif; ?>
+      </body>
+
+      </html>

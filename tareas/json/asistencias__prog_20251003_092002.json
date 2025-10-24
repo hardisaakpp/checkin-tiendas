@@ -1,0 +1,156 @@
+[
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1728791920",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251003",
+        "fecha_hasta": "20251005",
+        "dias_semana": "5;6;7",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1728791920",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251013",
+        "fecha_hasta": "20251019",
+        "dias_semana": "2;4;5;6;7",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1728791920",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251020",
+        "fecha_hasta": "20251026",
+        "dias_semana": "1;2;5;6;7",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1728791920",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251027",
+        "fecha_hasta": "20251031",
+        "dias_semana": "3;4;5",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1751025360",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251003",
+        "fecha_hasta": "20251005",
+        "dias_semana": "5;6;7",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1751025360",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251006",
+        "fecha_hasta": "20251012",
+        "dias_semana": "1;2;3;6;7",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1751025360",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251013",
+        "fecha_hasta": "20251019",
+        "dias_semana": "1;4;5;6;7",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1751025360",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251020",
+        "fecha_hasta": "20251026",
+        "dias_semana": "1;2;5;6;7",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1751025360",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251027",
+        "fecha_hasta": "20251031",
+        "dias_semana": "3;4;5",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1752677169",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251003",
+        "fecha_hasta": "20251005",
+        "dias_semana": "5;6;7",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1752677169",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251006",
+        "fecha_hasta": "20251012",
+        "dias_semana": "3;4;5;6;7",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1752677169",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251013",
+        "fecha_hasta": "20251019",
+        "dias_semana": "1;2;5;6;7",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1752677169",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251020",
+        "fecha_hasta": "20251026",
+        "dias_semana": "1;2;5;6;7",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-SCALA",
+        "asesor_cedula": "1752677169",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20251027",
+        "fecha_hasta": "20251031",
+        "dias_semana": "3;4;5",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    }
+]

@@ -1,0 +1,28 @@
+{
+    "sales": [
+        {
+            "location_code": "EC06",
+            "sale_country": "EC",
+            "channel_order_id": "095-020000000073",
+            "order_date": "12/09/2025",
+            "return_id": null,
+            "ean": "8445394397930",
+            "quantity": 1,
+            "amount_vat_lcy": "215.00",
+            "amount_no_vat_lcy": "186.96",
+            "vat": 15
+        },
+        {
+            "location_code": "EC06",
+            "sale_country": "EC",
+            "channel_order_id": "095-020000000074",
+            "order_date": "12/09/2025",
+            "return_id": null,
+            "ean": "8445394416310",
+            "quantity": 1,
+            "amount_vat_lcy": "150.00",
+            "amount_no_vat_lcy": "130.43",
+            "vat": 15
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "sales": [
+        {
+            "location_code": "EC04",
+            "sale_country": "EC",
+            "channel_order_id": "093-020000000199",
+            "order_date": "10/10/2025",
+            "return_id": null,
+            "ean": "8445394449981",
+            "quantity": 1,
+            "amount_vat_lcy": "58.50",
+            "amount_no_vat_lcy": "50.87",
+            "vat": 15
+        },
+        {
+            "location_code": "EC04",
+            "sale_country": "EC",
+            "channel_order_id": "093-020000000199",
+            "order_date": "10/10/2025",
+            "return_id": null,
+            "ean": "8445394454152",
+            "quantity": 1,
+            "amount_vat_lcy": "63.00",
+            "amount_no_vat_lcy": "54.78",
+            "vat": 15
+        },
+        {
+            "location_code": "EC04",
+            "sale_country": "EC",
+            "channel_order_id": "093-020000000200",
+            "order_date": "10/10/2025",
+            "return_id": null,
+            "ean": "8445394437353",
+            "quantity": 1,
+            "amount_vat_lcy": "145.00",
+            "amount_no_vat_lcy": "126.09",
+            "vat": 15
+        },
+        {
+            "location_code": "EC04",
+            "sale_country": "EC",
+            "channel_order_id": "093-020000000201",
+            "order_date": "10/10/2025",
+            "return_id": null,
+            "ean": "8445394429341",
+            "quantity": 1,
+            "amount_vat_lcy": "72.00",
+            "amount_no_vat_lcy": "72.00",
+            "vat": 15
+        },
+        {
+            "location_code": "EC04",
+            "sale_country": "EC",
+            "channel_order_id": "093-020000000201",
+            "order_date": "10/10/2025",
+            "return_id": null,
+            "ean": "8445394440827",
+            "quantity": 1,
+            "amount_vat_lcy": "240.00",
+            "amount_no_vat_lcy": "208.70",
+            "vat": 15
+        },
+        {
+            "location_code": "EC04",
+            "sale_country": "EC",
+            "channel_order_id": "093-020000000201",
+            "order_date": "10/10/2025",
+            "return_id": null,
+            "ean": "8445394450277",
+            "quantity": 1,
+            "amount_vat_lcy": "110.00",
+            "amount_no_vat_lcy": "95.65",
+            "vat": 15
+        },
+        {
+            "location_code": "EC04",
+            "sale_country": "EC",
+            "channel_order_id": "093-020000000202",
+            "order_date": "10/10/2025",
+            "return_id": null,
+            "ean": "8445394426685",
+            "quantity": 1,
+            "amount_vat_lcy": "465.00",
+            "amount_no_vat_lcy": "404.35",
+            "vat": 15
+        }
+    ]
+}

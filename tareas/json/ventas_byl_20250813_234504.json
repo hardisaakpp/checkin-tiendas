@@ -1,0 +1,16 @@
+{
+    "sales": [
+        {
+            "location_code": "EC04",
+            "sale_country": "EC",
+            "channel_order_id": "093-001000000030",
+            "order_date": "13/08/2025",
+            "return_id": null,
+            "ean": "8445394434796",
+            "quantity": 1,
+            "amount_vat_lcy": "175.00",
+            "amount_no_vat_lcy": "152.17",
+            "vat": 15
+        }
+    ]
+}

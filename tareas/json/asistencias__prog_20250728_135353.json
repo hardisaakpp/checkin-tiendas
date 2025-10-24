@@ -1,0 +1,112 @@
+[
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-Scala",
+        "asesor_cedula": "1753486412",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20250728",
+        "fecha_hasta": "20250731",
+        "dias_semana": "1;2;4",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-Quicentro Sur",
+        "asesor_cedula": "2450330283",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20250728",
+        "fecha_hasta": "20250731",
+        "dias_semana": "1;4",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-Scala",
+        "asesor_cedula": "1751282177",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20250728",
+        "fecha_hasta": "20250731",
+        "dias_semana": "1;2",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-Quicentro Sur",
+        "asesor_cedula": "1717581183",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20250728",
+        "fecha_hasta": "20250731",
+        "dias_semana": "1",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-Portal Shopping",
+        "asesor_cedula": "1720843448",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20250728",
+        "fecha_hasta": "20250731",
+        "dias_semana": "1;2;3",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-Quicentro Sur",
+        "asesor_cedula": "0604879643",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20250728",
+        "fecha_hasta": "20250731",
+        "dias_semana": "3;4",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-Portal Shopping",
+        "asesor_cedula": "1725499667",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20250728",
+        "fecha_hasta": "20250731",
+        "dias_semana": "1;2;3;4",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-Portal Shopping",
+        "asesor_cedula": "1726086752",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20250728",
+        "fecha_hasta": "20250731",
+        "dias_semana": "1;2",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-Portal Shopping",
+        "asesor_cedula": "1715952477",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20250728",
+        "fecha_hasta": "20250731",
+        "dias_semana": "1;2;4",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    },
+    {
+        "cliente_id": "48",
+        "local_nombre": "RL-Portal Shopping",
+        "asesor_cedula": "1719056333",
+        "asesor_cargo": "ASESOR DE VENTAS",
+        "fecha_desde": "20250728",
+        "fecha_hasta": "20250731",
+        "dias_semana": "1;2",
+        "usuario_api": "roland-int",
+        "clave_api": "D2gD7MG2"
+    }
+]
