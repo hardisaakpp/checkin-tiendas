@@ -32,9 +32,10 @@
           border-radius: 20px;
           overflow: hidden;
           box-shadow: 0 12px 48px rgba(0,0,0,0.15);
-          margin-bottom: 3rem;
+          margin: 4rem auto 3rem auto;
           position: relative;
           background: var(--bs-body-bg, #212529);
+          max-width: 85%;
         }
 
         .carousel-inner {
@@ -164,6 +165,10 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+          .carousel {
+            max-width: 95%;
+          }
+
           .carousel-control-prev,
           .carousel-control-next {
             width: 45px;

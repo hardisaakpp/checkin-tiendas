@@ -23,6 +23,12 @@ include_once 'header.php'; ?>
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
+    z-index: 1000;
+  }
+
+  [data-bs-theme="dark"] .tooltip-text {
+    background-color: #495057;
+    color: #f8f9fa;
   }
 
   .icon-container {
@@ -158,6 +164,172 @@ include_once 'header.php'; ?>
   [data-bs-theme="dark"] .btn-close {
     filter: invert(1) grayscale(100%) brightness(200%);
   }
+
+  /* Estilos para la tabla en modo claro */
+  .table-responsive {
+    background: #ecf0f1;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .table thead {
+    background: #a6acaf;
+    color: #fff;
+  }
+
+  /* Estilos para la tabla en modo oscuro */
+  [data-bs-theme="dark"] .table-responsive {
+    background-color: #212529 !important;
+  }
+
+  [data-bs-theme="dark"] .table {
+    background-color: #212529 !important;
+    color: #f8f9fa !important;
+  }
+
+  [data-bs-theme="dark"] .table thead {
+    background: linear-gradient(135deg, #495057 0%, #343a40 100%) !important;
+    color: #f8f9fa !important;
+  }
+
+  [data-bs-theme="dark"] .table thead td,
+  [data-bs-theme="dark"] .table thead th {
+    background: transparent !important;
+    color: #f8f9fa !important;
+    border-color: #495057 !important;
+  }
+
+  [data-bs-theme="dark"] .table tbody {
+    background-color: #212529 !important;
+    color: #f8f9fa !important;
+  }
+
+  [data-bs-theme="dark"] .table tbody tr {
+    background-color: #212529 !important;
+    color: #f8f9fa !important;
+    border-color: #495057 !important;
+  }
+
+  [data-bs-theme="dark"] .table tbody tr:hover {
+    background-color: #343a40 !important;
+    color: #f8f9fa !important;
+  }
+
+  [data-bs-theme="dark"] .table tbody td {
+    background-color: transparent !important;
+    color: #f8f9fa !important;
+    border-color: #495057 !important;
+  }
+
+  [data-bs-theme="dark"] .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: #2c3034 !important;
+    color: #f8f9fa !important;
+  }
+
+  [data-bs-theme="dark"] .table-bordered {
+    border-color: #495057 !important;
+  }
+
+  [data-bs-theme="dark"] .table-bordered > :not(caption) > * {
+    border-color: #495057 !important;
+  }
+
+  [data-bs-theme="dark"] .table-bordered > :not(caption) > * > * {
+    border-color: #495057 !important;
+  }
+
+  /* Título y hr en modo oscuro */
+  [data-bs-theme="dark"] h4 {
+    color: #f8f9fa !important;
+  }
+
+  [data-bs-theme="dark"] hr {
+    border-color: #495057 !important;
+    opacity: 1;
+  }
+
+  /* Badges en modo oscuro */
+  [data-bs-theme="dark"] .badge {
+    color: #fff !important;
+  }
+
+  /* Botones en modo oscuro */
+  [data-bs-theme="dark"] .btn-success {
+    background-color: #198754 !important;
+    border-color: #198754 !important;
+  }
+
+  [data-bs-theme="dark"] .btn-success:hover {
+    background-color: #157347 !important;
+    border-color: #146c43 !important;
+  }
+
+  [data-bs-theme="dark"] .btn-warning {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    color: #000 !important;
+  }
+
+  [data-bs-theme="dark"] .btn-warning:hover {
+    background-color: #ffca2c !important;
+    border-color: #ffc720 !important;
+    color: #000 !important;
+  }
+
+  [data-bs-theme="dark"] .btn-danger {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+  }
+
+  [data-bs-theme="dark"] .btn-danger:hover {
+    background-color: #bb2d3b !important;
+    border-color: #b02a37 !important;
+  }
+
+  [data-bs-theme="dark"] .btn-secondary {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+  }
+
+  [data-bs-theme="dark"] .btn-primary {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+  }
+
+  /* DataTables en modo oscuro */
+  [data-bs-theme="dark"] .dataTables_wrapper {
+    color: #f8f9fa !important;
+  }
+
+  [data-bs-theme="dark"] .dataTables_filter input {
+    background-color: #212529 !important;
+    border-color: #495057 !important;
+    color: #f8f9fa !important;
+  }
+
+  [data-bs-theme="dark"] .dataTables_length select {
+    background-color: #212529 !important;
+    border-color: #495057 !important;
+    color: #f8f9fa !important;
+  }
+
+  [data-bs-theme="dark"] .dataTables_paginate .paginate_button {
+    color: #f8f9fa !important;
+  }
+
+  [data-bs-theme="dark"] .dataTables_paginate .paginate_button:hover {
+    background: #495057 !important;
+    color: #f8f9fa !important;
+  }
+
+  [data-bs-theme="dark"] .dataTables_paginate .paginate_button.current {
+    background: #64b5f6 !important;
+    color: #fff !important;
+  }
+
+  [data-bs-theme="dark"] .dataTables_info {
+    color: #f8f9fa !important;
+  }
 </style>
 
 <!-- Select2 CSS -->
@@ -182,9 +354,17 @@ include_once 'header.php'; ?>
 
     <div class="row">
       <div class="col-md-12">
-        <div style="background: #ecf0f1;" class="table-responsive">
+        <div class="mb-3 d-flex justify-content-end">
+          <a href="directorio.php" class="btn d-flex align-items-center gap-2" style="background: linear-gradient(135deg, #64b5f6 0%, #1976d2 100%); color: white; border: none; border-radius: 10px; padding: 0.75rem 1.5rem; font-weight: 500; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(100, 181, 246, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(100, 181, 246, 0.3)'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+              <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708.708L5.707 7.5z"/>
+            </svg>
+            VOLVER AL DIRECTORIO
+          </a>
+        </div>
+        <div class="table-responsive">
           <table align="center" width="100%" class="table table-striped table-bordered" id="tabla_directorio" style="font-size:12px;">
-            <thead align="left" style="background: #a6acaf">
+            <thead align="left">
               <tr width="100%" align="center" style="font-size: 0.9rem;">
                 <td><strong>ÁREA</strong></td>
                 <td><strong>COLABORADOR</strong></td>
