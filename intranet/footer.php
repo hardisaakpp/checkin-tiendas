@@ -1,4 +1,24 @@
       <style>
+        /* Prevenir overflow horizontal en toda la página */
+        html {
+          overflow-x: hidden;
+        }
+
+        body {
+          overflow-x: hidden;
+          max-width: 100%;
+          width: 100%;
+        }
+
+        .container, .container-fluid {
+          max-width: 100%;
+          overflow-x: hidden;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
         .logos-section {
           background: #ffffff !important;
           padding: 3rem 0;
@@ -6,9 +26,11 @@
           box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
           overflow: hidden;
           position: relative;
-          width: 100vw;
-          margin-left: calc(-50vw + 50%);
-          margin-right: calc(-50vw + 50%);
+          width: 100%;
+          margin-left: 0;
+          margin-right: 0;
+          left: 0;
+          right: 0;
         }
 
         .logos-section::before,
@@ -152,14 +174,14 @@
         </div>
       </div>
     </div>
-    <footer class="footer-modern" style="background: linear-gradient(135deg, #64b5f6 0%, #1976d2 100%); box-shadow: 0 -4px 20px rgba(0,0,0,0.15);">
+    <footer class="footer-modern" style="background: transparent; box-shadow: none;">
       <div class="container">
-        <div class="text-center text-white py-4">
-          <div class="footer-content" style="padding: 1.5rem 0;">
-            <p class="mb-2" style="font-size: 1rem; font-weight: 500; opacity: 0.95;">
+        <div class="text-center py-2">
+          <div class="footer-content" style="padding: 0.75rem 0;">
+            <p class="mb-1" style="font-size: 0.875rem; font-weight: 500; color: #6c757d;">
               © <span id="current_date"></span> Mabel Group
             </p>
-            <p class="mb-0" style="font-size: 0.875rem; opacity: 0.8;">
+            <p class="mb-0" style="font-size: 0.75rem; color: #6c757d; opacity: 0.8;">
               Sistema Intranet - Todos los derechos reservados
             </p>
           </div>
