@@ -109,10 +109,6 @@ if (isset($_GET['logout']) && $_GET['logout'] === '1') {
         .back-link:hover {
             color: #495057;
         }
-        .logo-intranet {
-            max-width: 80px;
-            margin-bottom: 1rem;
-        }
     </style>
 </head>
 <body>
@@ -121,7 +117,6 @@ if (isset($_GET['logout']) && $_GET['logout'] === '1') {
             <div class="col-md-5">
                 <div class="card login-card border-0">
                     <div class="login-header">
-                        <img src="../assets/img/logos/Solo LogoMT.png" alt="Logo" class="logo-intranet">
                         <h4>🔐 Acceso Administrativo</h4>
                         <small>Administración de Directorio Telefónico</small>
                     </div>
@@ -210,4 +205,5 @@ if (isset($_GET['logout']) && $_GET['logout'] === '1') {
     </script>
 </body>
 </html>
+
 

@@ -15,7 +15,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta name="author" content="Departamento Desarrollo MABEL">
     <meta name="generator" content="1.0">
     <title>Intranet Mabel Group</title>
-    <link rel="icon" type="image/png" href="../assets/img/logos/Solo LogoMT.png" />
+    <link rel="icon" type="image/png" href="../assets/img/logos/<?php echo rawurlencode('Solo LogoMT.png'); ?>" />
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">  
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="../assets/dist/js/jquery.min.js"></script>  
