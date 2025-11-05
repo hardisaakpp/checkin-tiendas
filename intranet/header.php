@@ -130,12 +130,35 @@ if (session_status() === PHP_SESSION_NONE) {
       .brand-button {
         background-color:rgb(159, 203, 239);
         padding: 7px 10px;
-        border-radius: 6px;
-        box-shadow: 0 9px 9px rgba(0,0,0,0.1);
-        transition: background-color 0.3s ease;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255,255,255,0.2);
       }
       .brand-button:hover {
         background-color:rgb(159, 203, 239);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transform: translateY(-1px);
+      }
+
+      /* Estilos mejorados para el navbar */
+      .navbar {
+        transition: box-shadow 0.3s ease;
+      }
+
+      /* Placeholder personalizado */
+      .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.7) !important;
+        opacity: 1;
+      }
+
+      .form-control:focus::placeholder {
+        color: rgba(255, 255, 255, 0.5) !important;
+      }
+
+      /* Mejoras en la visualización de iconos */
+      .icon-container svg {
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
       }
 
     </style>  
@@ -198,30 +221,30 @@ if (session_status() === PHP_SESSION_NONE) {
     <div class="container">
       
       <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between mb-4 border-bottom">
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:#64b5f6;">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%); box-shadow: 0 2px 12px rgba(0,0,0,0.15); backdrop-filter: blur(10px);">
           <div class="container-fluid">
             <a class="navbar-brand brand-button" href="index.php" title="Haz clic para volver al inicio"><img src="../assets/img/intranet/2.png" width="50" height="36" alt="Logo Intranet" class="logo-animated"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" style="border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; padding: 4px 8px;">
               <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="icon-container" style="display: flex; gap: 10px; align-items: center;">
+            <div class="icon-container" style="display: flex; gap: 12px; align-items: center;">
               <?php
               // Mostrar información de usuario si está autenticado
               if (isset($_SESSION['admin_autenticado']) && $_SESSION['admin_autenticado'] === true) {
                   $usuarioNombre = $_SESSION['usuario_nombre'] ?? 'Usuario';
                   $usuarioRol = $_SESSION['usuario_rol'] ?? '';
-                  echo '<span class="text-white me-2" style="font-size: 0.9rem;">';
-                  echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle me-1" viewBox="0 0 16 16">';
+                  echo '<span class="text-white me-2 d-flex align-items-center" style="font-size: 0.9rem; font-weight: 500; padding: 6px 12px; background-color: rgba(255,255,255,0.1); border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor=\'rgba(255,255,255,0.15)\'" onmouseout="this.style.backgroundColor=\'rgba(255,255,255,0.1)\'">';
+                  echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle me-2" viewBox="0 0 16 16" style="flex-shrink: 0;">';
                   echo '<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>';
                   echo '<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>';
                   echo '</svg>';
-                  echo htmlspecialchars($usuarioNombre);
+                  echo '<span>' . htmlspecialchars($usuarioNombre) . '</span>';
                   if ($usuarioRol) {
-                      echo ' <small class="badge bg-light text-dark ms-1">' . htmlspecialchars($usuarioRol) . '</small>';
+                      echo ' <small class="badge ms-2" style="background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%); color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; padding: 2px 8px; font-weight: 500;">' . htmlspecialchars($usuarioRol) . '</small>';
                   }
                   echo '</span>';
-                  echo '<a href="logout.php" class="btn btn-outline-light btn-sm d-flex align-items-center gap-1" style="text-decoration: none;" title="Cerrar sesión">';
+                  echo '<a href="logout.php" class="btn btn-outline-light btn-sm d-flex align-items-center gap-1" style="text-decoration: none; border-radius: 8px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border-width: 1.5px;" title="Cerrar sesión" onmouseover="this.style.transform=\'translateY(-2px)\'; this.style.boxShadow=\'0 4px 12px rgba(0,0,0,0.2)\'" onmouseout="this.style.transform=\'translateY(0)\'; this.style.boxShadow=\'none\'">';
                   echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">';
                   echo '<path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>';
                   echo '<path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>';
@@ -230,14 +253,14 @@ if (session_status() === PHP_SESSION_NONE) {
                   echo '</a>';
               }
               ?>
-              <a href="admin_directorio.php" class="btn btn-outline-light d-flex align-items-center gap-2" style="text-decoration: none;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+              <a href="admin_directorio.php" class="btn btn-outline-light d-flex align-items-center gap-2" style="text-decoration: none; border-radius: 10px; border-width: 1.5px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-weight: 500;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.2)'; this.style.backgroundColor='rgba(255,255,255,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.backgroundColor='transparent'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                   <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
                 </svg>
                 ADMIN DIRECTORIO
               </a>
-              <button class="btn btn-outline-light d-flex align-items-center gap-2" onclick="abrirCarpeta()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-folder-fill" viewBox="0 0 16 16">
+              <button class="btn btn-outline-light d-flex align-items-center gap-2" onclick="abrirCarpeta()" style="border-radius: 10px; border-width: 1.5px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-weight: 500;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.2)'; this.style.backgroundColor='rgba(255,255,255,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.backgroundColor='transparent'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-folder-fill" viewBox="0 0 16 16" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                   <path d="M9.828 4a.5.5 0 0 1 .354.146l1.5 1.5A.5.5 0 0 1 11.5 6H14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h5.172a.5.5 0 0 1 .354.146l1.5 1.5A.5.5 0 0 1 9.5 3H14a2 2 0 0 1 2 2v1H9.828z"/>
                 </svg>
                 TALENTO HUMANO
@@ -246,10 +269,11 @@ if (session_status() === PHP_SESSION_NONE) {
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <form class="d-flex ms-auto">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary" type="submit">Buscar</button>
+                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white; transition: all 0.3s ease;" onfocus="this.style.backgroundColor='rgba(255,255,255,0.2)'; this.style.borderColor='rgba(255,255,255,0.5)'" onblur="this.style.backgroundColor='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.3)'">
+                <button class="btn btn-secondary" type="submit" style="border-radius: 8px; border: none; background-color: rgba(255,255,255,0.2); transition: all 0.3s ease; font-weight: 500;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.3)'; this.style.transform='translateY(-1px)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(0)'">Buscar</button>
               </form>
             </div>
           </div>
         </nav>            
       </header>
+
