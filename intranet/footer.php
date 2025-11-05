@@ -2,10 +2,13 @@
         .logos-section {
           background: #ffffff !important;
           padding: 3rem 0;
-          border-radius: 16px 16px 0 0;
+          border-radius: 0;
           box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
           overflow: hidden;
           position: relative;
+          width: 100vw;
+          margin-left: calc(-50vw + 50%);
+          margin-right: calc(-50vw + 50%);
         }
 
         .logos-section::before,
@@ -108,9 +111,8 @@
         }
       </style>
       <div class="logos-section">
-        <div class="container-fluid px-0">
-          <div class="logos-carousel-wrapper">
-            <div class="logos-track">
+        <div class="logos-carousel-wrapper">
+          <div class="logos-track">
               <?php
                 $ruta = '../assets/img/logos/';            
                 if(is_dir($ruta)){
@@ -146,7 +148,6 @@
                   echo '<div class="col-12 text-center text-muted">La carpeta no existe.</div>'; 
                 }          
               ?>
-            </div>
           </div>
         </div>
       </div>

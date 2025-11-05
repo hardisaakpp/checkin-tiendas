@@ -34,7 +34,7 @@
           box-shadow: 0 12px 48px rgba(0,0,0,0.15);
           margin-bottom: 3rem;
           position: relative;
-          background: #000;
+          background: var(--bs-body-bg, #212529);
         }
 
         .carousel-inner {
@@ -160,19 +160,7 @@
           transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
         }
 
-        /* Overlay decorativo en los bordes */
-        .carousel::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          border-radius: 20px;
-          border: 2px solid rgba(255, 255, 255, 0.1);
-          pointer-events: none;
-          z-index: 2;
-        }
+        /* Overlay decorativo en los bordes - removido para que coincida con el fondo */
 
         /* Responsive */
         @media (max-width: 768px) {
