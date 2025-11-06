@@ -112,33 +112,69 @@ if (session_status() === PHP_SESSION_NONE) {
       }
 
       .logo-animated {
-        transition: transform 0.5s ease-in-out;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         cursor: pointer;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
       }
 
-      .logo-animated:hover {
-        transform: scale(1.2);
-        animation: bounce 0.9s;
+      @keyframes logoPulse {
+        0%   { transform: scale(1.15) rotate(5deg); }
+        50%  { transform: scale(1.1) rotate(3deg); }
+        100% { transform: scale(1.15) rotate(5deg); }
       }
 
-      @keyframes bounce {
-        0%   { transform: scale(1.2); }
-        50%  { transform: scale(0.99); }
-        100% { transform: scale(1.2); }
+      .brand-button:hover .logo-animated {
+        transform: scale(1.15) rotate(5deg);
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        animation: logoPulse 2s ease-in-out infinite;
       }
 
       .brand-button {
-        background-color:rgb(159, 203, 239);
-        padding: 7px 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(255,255,255,0.2);
+        background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%);
+        backdrop-filter: blur(10px);
+        padding: 5px 8px;
+        border-radius: 10px;
+        box-shadow: 
+          0 4px 16px rgba(0,0,0,0.1),
+          0 0 0 1px rgba(255,255,255,0.3),
+          inset 0 1px 0 rgba(255,255,255,0.4);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        border: none;
+        position: relative;
+        overflow: hidden;
       }
+
+      .brand-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .brand-button:hover::before {
+        left: 100%;
+      }
+
       .brand-button:hover {
-        background-color:rgb(159, 203, 239);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        transform: translateY(-1px);
+        background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.25) 100%);
+        box-shadow: 
+          0 8px 24px rgba(0,0,0,0.15),
+          0 0 0 1px rgba(255,255,255,0.4),
+          inset 0 1px 0 rgba(255,255,255,0.5),
+          0 0 20px rgba(159, 203, 239, 0.4);
+        transform: translateY(-2px) scale(1.02);
+      }
+
+      .brand-button:active {
+        transform: translateY(0) scale(0.98);
+        box-shadow: 
+          0 2px 8px rgba(0,0,0,0.1),
+          0 0 0 1px rgba(255,255,255,0.3),
+          inset 0 2px 4px rgba(0,0,0,0.1);
       }
 
       /* Estilos mejorados para el navbar */
@@ -264,7 +300,11 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <form class="d-flex ms-auto">
                 <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); color: white; transition: all 0.3s ease;" onfocus="this.style.backgroundColor='rgba(255,255,255,0.2)'; this.style.borderColor='rgba(255,255,255,0.5)'" onblur="this.style.backgroundColor='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.3)'">
-                <button class="btn btn-secondary" type="submit" style="border-radius: 8px; border: none; background-color: rgba(255,255,255,0.2); transition: all 0.3s ease; font-weight: 500;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.3)'; this.style.transform='translateY(-1px)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(0)'">Buscar</button>
+                <button class="btn btn-secondary d-flex align-items-center justify-content-center" type="submit" style="border-radius: 8px; border: none; background-color: rgba(255,255,255,0.2); transition: all 0.3s ease; width: 40px; height: 38px; padding: 0;" aria-label="Buscar" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.3)'; this.style.transform='translateY(-1px)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.2)'; this.style.transform='translateY(0)'">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                  </svg>
+                </button>
               </form>
             </div>
           </div>
